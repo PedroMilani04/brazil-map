@@ -1,0 +1,51 @@
+.container {
+    height: 100vh;
+    background-color: rgb(242, 241, 241);
+    width: 30vw;
+    z-index: 2;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 25px;
+
+    position: absolute;
+}
+
+.top {
+    background-color: antiquewhite;
+    height: 11vh;
+    text-align: center;
+    font-size: 2em;
+    border-top-right-radius: 15px;
+
+}
+
+.info {
+    height: 89vh;
+    background-color: aliceblue;
+    border-bottom-right-radius: 15px;
+
+}
+
+.infochild {
+    height: 5vh;
+    margin-bottom: 15px;
+    background-color: wheat;
+}
+
+.pictures {
+    background-color: rgb(182, 167, 149);
+    height: 54vh;
+    display: flex;
+    flex-direction: column;
+    border-bottom-right-radius: 15px;
+
+}
+
+.picContainer {
+    background-color: white;
+    height: 42vh;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+h2 {
+}

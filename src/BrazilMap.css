@@ -1,3 +1,7 @@
 .leaflet-container {
     background-color: #f0f0f0;
   }
+
+.mapcont {
+  z-index: 1;
+}

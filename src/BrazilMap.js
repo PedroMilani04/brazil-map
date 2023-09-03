@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './BrazilMap.css';
+import SideBar from './SideBar';
 
 const BrazilMap = () => {
   const [geojsonData, setGeojsonData] = useState(null);
@@ -20,7 +21,7 @@ const BrazilMap = () => {
 
   // Define bounds for Brazil (adjust these as needed)
   const brazilBounds = [
-    [-33.75, -73.98], // Southwest coordinates of Brazil
+    [-33.75, -100.98], // Southwest coordinates of Brazil
     [5.27, -34.79],   // Northeast coordinates of Brazil
   ];
 
@@ -29,38 +30,43 @@ const BrazilMap = () => {
   const maxZoom = 10;
 
   return (
-    <MapContainer
-      center={[-14.235, -51.925]}
-      zoom={minZoom} // Set the initial zoom level to the minimum
-      style={{ height: '100vh' }}
-      maxBounds={brazilBounds}
-      maxBoundsViscosity={1.0}
-      minZoom={minZoom}
-      maxZoom={maxZoom}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {geojsonData && (
-        <GeoJSON
-          data={geojsonData}
-          style={{ color: '#199A14' }} // Set initial color
-          onEachFeature={(feature, layer) => {
-            layer.on({
-              mouseover: () => {
-                layer.setStyle({ color: '#1ACF14' }); // Change color on mouseover
-              },
-              mouseout: () => {
-                layer.setStyle({ color: '#199A14' }); // Reset color on mouseout
-              },
-              click: () => {
-                window.alert(feature.properties.name)
-              },
-            });
-          }}
+    <div className='all'>
+      <SideBar />
+      <MapContainer
+      className='mapcont'
+        center={[-14.235, -51.925]}
+        zoom={minZoom} // Set the initial zoom level to the minimum
+        style={{ height: '100vh' }}
+        maxBounds={brazilBounds}
+        maxBoundsViscosity={1.0}
+        minZoom={minZoom}
+        maxZoom={maxZoom}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-      )}
-    </MapContainer>
+        {geojsonData && (
+          <GeoJSON
+            data={geojsonData}
+            style={{ color: '#199A14' }} // Set initial color
+            onEachFeature={(feature, layer) => {
+              layer.on({
+                mouseover: () => {
+                  layer.setStyle({ color: '#1ACF14' }); // Change color on mouseover
+                },
+                mouseout: () => {
+                  layer.setStyle({ color: '#199A14' }); // Reset color on mouseout
+                },
+                click: () => {
+                  window.alert(feature.properties.name)
+                },
+              });
+            }}
+          />
+        )}
+      </MapContainer>
+    </div>
+
   );
 };
 
