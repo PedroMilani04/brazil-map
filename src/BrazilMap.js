@@ -29,9 +29,11 @@ const BrazilMap = () => {
   const minZoom = 4;
   const maxZoom = 10;
 
+  const [selectedState, setSelectedState] = useState(null);
+
   return (
     <div className='all'>
-      <SideBar />
+      <SideBar selectedState={selectedState}/>
       <MapContainer
       className='mapcont'
         center={[-14.235, -51.925]}
@@ -58,7 +60,7 @@ const BrazilMap = () => {
                   layer.setStyle({ color: '#199A14' }); // Reset color on mouseout
                 },
                 click: () => {
-                  window.alert(feature.properties.name)
+                  setSelectedState(feature.properties.name)
                 },
               });
             }}
