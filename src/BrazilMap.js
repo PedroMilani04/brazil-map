@@ -21,7 +21,7 @@ const BrazilMap = () => {
 
   // Define bounds for Brazil (adjust these as needed)
   const brazilBounds = [
-    [-33.75, -100.98], // Southwest coordinates of Brazil
+    [-33.75, -107.98], // Southwest coordinates of Brazil
     [5.27, -34.79],   // Northeast coordinates of Brazil
   ];
 
@@ -39,7 +39,7 @@ const BrazilMap = () => {
 
   return (
     <div className='all'>
-      <SideBar selectedState={selectedState}/>
+      <SideBar selectedState={selectedState} selectedCapital={selectedCapital} selectedBiome={selectedBiome} selectedFuso={selectedFuso} selectedPopul={selectedPopul} />
       <MapContainer
       className='mapcont'
         center={[-14.235, -51.925]}
@@ -97,7 +97,11 @@ const BrazilMap = () => {
                   }
                 },
                 click: () => {
-                  setSelectedState(feature.properties.name)
+                  setSelectedState(feature.properties.name);
+                  setSelectedCapital(feature.properties.capital);
+                  setSelectedBiome(feature.properties.bioma);
+                  setSelectedPopul(feature.properties.populacao);
+                  setSelectedFuso(feature.properties.fuso);
                 },
               });
             }}

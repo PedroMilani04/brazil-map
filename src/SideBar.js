@@ -3,7 +3,7 @@ import './SideBar.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 
-const SideBar = ({ selectedState }) => {
+const SideBar = ({ selectedState, selectedCapital, selectedBiome, selectedFuso, selectedPopul }) => {
     return (
         <div className="container">
             <div className="top">      
@@ -12,10 +12,10 @@ const SideBar = ({ selectedState }) => {
             </div>
             <div className="info">
                 <div className="infochild"><p>{selectedState}</p></div>
-                <div className="infochild"><p>Capital</p></div>
-                <div className="infochild"><p>Bioma</p></div>
-                <div className="infochild"><p>Temperatura</p></div>
-                <div className="infochild"><p>Algo</p></div>
+                <div className="infochild"><p>{selectedCapital}</p></div>
+                <div className="infochild"><p>{selectedBiome}</p></div>
+                <div className="infochild"><p>{selectedFuso}</p></div>
+                <div className="infochild"><p>{selectedPopul}</p></div>
                 <div className="pictures">
                     <h2> Fotos </h2>
                     <div className="picContainer"></div>
