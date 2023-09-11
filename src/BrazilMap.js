@@ -9,7 +9,7 @@ const BrazilMap = () => {
 
   useEffect(() => {
     // Fetch the GeoJSON data for all Brazilian states
-    fetch('https://api.npoint.io/fdfe4a45600d57638ae2')
+    fetch('https://api.npoint.io/b6e62b85786ebb5b7f80')
       .then((response) => response.json())
       .then((data) => {
         setGeojsonData(data);
@@ -29,7 +29,13 @@ const BrazilMap = () => {
   const minZoom = 4;
   const maxZoom = 10;
 
-  const [selectedState, setSelectedState] = useState(null);
+  const [selectedState, setSelectedState] = useState("Estado");
+  // starting new info states
+  const [selectedCapital, setSelectedCapital] = useState("Capital");
+  const [selectedBiome, setSelectedBiome] = useState("Bioma");
+  const [selectedFuso, setSelectedFuso] = useState("Fuso");
+  const [selectedPopul, setSelectedPopul] = useState("População");
+
 
   return (
     <div className='all'>
@@ -50,14 +56,45 @@ const BrazilMap = () => {
         {geojsonData && (
           <GeoJSON
             data={geojsonData}
-            style={{ color: '#199A14' }} // Set initial color
+            style={(feature) => {
+              if (feature.properties.regiao_id === '1') {
+                return { color: '#7F3687' }; // Set color to pink
+              } else if (feature.properties.regiao_id === '2') {
+                return { color: '#E21349' }; // Set the default color for other states
+              } else if (feature.properties.regiao_id === '3') {
+                return { color: '#42A62A' }; // Set the default color for other states
+              } else if (feature.properties.regiao_id === '4') {
+                return { color: '#0B71B4' }; // Set the default color for other states
+              } else if (feature.properties.regiao_id === '5') {
+                return { color: '#F8B236' }; // Set the default color for other states
+              }
+            }}
             onEachFeature={(feature, layer) => {
               layer.on({
-                mouseover: () => {
-                  layer.setStyle({ color: '#1ACF14' }); // Change color on mouseover
-                },
+                mouseover: () => {if (feature.properties.regiao_id === '1') {
+                  layer.setStyle({ color: '#a864af' });
+                } else if (feature.properties.regiao_id === '2') {
+                  layer.setStyle({ color: '#ea466f' });
+                } else if (feature.properties.regiao_id === '3') {
+                  layer.setStyle({ color: '#77cc61' });
+                } else if (feature.properties.regiao_id === '4') {
+                  layer.setStyle({ color: '#338cc4' });
+                } else if (feature.properties.regiao_id === '5') {
+                  layer.setStyle({ color: '#f7cd85' });
+                }
+              },
                 mouseout: () => {
-                  layer.setStyle({ color: '#199A14' }); // Reset color on mouseout
+                  if (feature.properties.regiao_id === '1') {
+                    layer.setStyle({ color: '#7F3687' });
+                  } else if (feature.properties.regiao_id === '2') {
+                    layer.setStyle({ color: '#E21349' });
+                  } else if (feature.properties.regiao_id === '3') {
+                    layer.setStyle({ color: '#42A62A' });
+                  } else if (feature.properties.regiao_id === '4') {
+                    layer.setStyle({ color: '#0B71B4' });
+                  } else if (feature.properties.regiao_id === '5') {
+                    layer.setStyle({ color: '#F8B236' });
+                  }
                 },
                 click: () => {
                   setSelectedState(feature.properties.name)
