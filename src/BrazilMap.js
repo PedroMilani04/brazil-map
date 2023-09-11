@@ -3,8 +3,15 @@ import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './BrazilMap.css';
 import SideBar from './SideBar';
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const BrazilMap = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+}, []);
+
+
   const [geojsonData, setGeojsonData] = useState(null);
 
   useEffect(() => {
@@ -29,17 +36,23 @@ const BrazilMap = () => {
   const minZoom = 4;
   const maxZoom = 10;
 
-  const [selectedState, setSelectedState] = useState("Estado");
+  const [selectedState, setSelectedState] = useState("--");
   // starting new info states
-  const [selectedCapital, setSelectedCapital] = useState("Capital");
-  const [selectedBiome, setSelectedBiome] = useState("Bioma");
-  const [selectedFuso, setSelectedFuso] = useState("Fuso");
-  const [selectedPopul, setSelectedPopul] = useState("População");
+  const [selectedCapital, setSelectedCapital] = useState("--");
+  const [selectedBiome, setSelectedBiome] = useState("--");
+  const [selectedFuso, setSelectedFuso] = useState("--");
+  const [selectedPopul, setSelectedPopul] = useState("--");
 
+  const [key, setKey] = useState(0); // Initialize key with 0
+
+  // Function to update the key
+  const updateKey = () => {
+    setKey((prevKey) => prevKey + 1); // Increment the key to trigger a re-render
+  };
 
   return (
     <div className='all'>
-      <SideBar selectedState={selectedState} selectedCapital={selectedCapital} selectedBiome={selectedBiome} selectedFuso={selectedFuso} selectedPopul={selectedPopul} />
+      <SideBar data-aos="slide-right" data-aos-duration="1800" key={key} selectedState={selectedState} selectedCapital={selectedCapital} selectedBiome={selectedBiome} selectedFuso={selectedFuso} selectedPopul={selectedPopul} />
       <MapContainer
       className='mapcont'
         center={[-14.235, -51.925]}
@@ -102,6 +115,7 @@ const BrazilMap = () => {
                   setSelectedBiome(feature.properties.bioma);
                   setSelectedPopul(feature.properties.populacao);
                   setSelectedFuso(feature.properties.fuso);
+                  updateKey()
                 },
               });
             }}

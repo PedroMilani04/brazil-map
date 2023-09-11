@@ -35,26 +35,42 @@
     height: 3vh;
     background-color: #1b2640;
     padding: 12px;
-
+    margin-bottom: 1vh;
 }
 .infochild p {
+    transition: ease-in 2s;
+    margin-top: -15px;
+    display: flex;
+    flex-direction: column;
+}
+
+h5 {
+    font-style: italic;
+    margin-bottom: 15px;
 }
 
 .pictures {
+    border-top: 3px solid white;
     background-color: #1b2640;
-    height: 54vh;
+    height: 40vh;
     display: flex;
     flex-direction: column;
     border-bottom-right-radius: 15px;
-    margin-top: 2vh;
+    margin-top: 10vh;
 }
 
 .picContainer {
     background-color: white;
-    height: 42vh;
+    height: 40vh;
     margin-left: 8%;
     margin-right: 8%;
+    border-radius: 10px;
 }
 
 h2 {
+    text-decoration: underline;
 }
+.animate-text {
+    transition: opacity 1s ease-in-out; /* You can choose your desired animation property and duration */
+  }
+  
