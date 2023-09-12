@@ -28,12 +28,12 @@ const BrazilMap = () => {
 
   // Define bounds for Brazil (adjust these as needed)
   const brazilBounds = [
-    [-33.75, -107.98], // Southwest coordinates of Brazil
-    [5.27, -34.79],   // Northeast coordinates of Brazil
+    [-43.75, -107.98], // Southwest coordinates of Brazil
+    [15.27, -24.79],   // Northeast coordinates of Brazil
   ];
 
   // Set minimum and maximum zoom levels
-  const minZoom = 4;
+  const minZoom = 5;
   const maxZoom = 10;
 
   const [selectedState, setSelectedState] = useState("--");
@@ -44,12 +44,29 @@ const BrazilMap = () => {
   const [selectedPopul, setSelectedPopul] = useState("--");
 
   const [key, setKey] = useState(0); // Initialize key with 0
-
-  // Function to update the key
   const updateKey = () => {
     setKey((prevKey) => prevKey + 1); // Increment the key to trigger a re-render
   };
 
+  const handleStateClick = (feature, layer) => {
+    const bounds = layer.getBounds();
+    const map = layer._map; // Get the map instance from the layer
+
+    // Fit the map to the bounds of the selected state
+    if (map) {
+      map.fitBounds(bounds);
+    }
+
+    // Update the selected state and other information
+    setSelectedState(feature.properties.name);
+    setSelectedCapital(feature.properties.capital);
+    setSelectedBiome(feature.properties.bioma);
+    setSelectedPopul(feature.properties.populacao);
+    setSelectedFuso(feature.properties.fuso);
+    updateKey();
+  };
+  // Function to update the key
+  
   return (
     <div className='all'>
       <SideBar data-aos="slide-right" data-aos-duration="1800" key={key} selectedState={selectedState} selectedCapital={selectedCapital} selectedBiome={selectedBiome} selectedFuso={selectedFuso} selectedPopul={selectedPopul} />
@@ -110,12 +127,8 @@ const BrazilMap = () => {
                   }
                 },
                 click: () => {
-                  setSelectedState(feature.properties.name);
-                  setSelectedCapital(feature.properties.capital);
-                  setSelectedBiome(feature.properties.bioma);
-                  setSelectedPopul(feature.properties.populacao);
-                  setSelectedFuso(feature.properties.fuso);
-                  updateKey()
+                  handleStateClick(feature, layer);
+
                 },
               });
             }}

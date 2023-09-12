@@ -5,3 +5,7 @@
 .mapcont {
   z-index: 1;
 }
+.btn {
+  color: black;
+  z-index: 22;
+}
