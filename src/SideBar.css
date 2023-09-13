@@ -11,8 +11,29 @@
     position: absolute;
     font-family: 'Poppins', sans-serif;
     color: #fff;
+    transform: translateX(0); /* Initially, the sidebar is not translated */
+
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+
 }
 
+.container.visible {
+    transform: translateX(-75%); /* Translate the sidebar to the left when it's visible */
+    background-color: rgba(250, 235, 215, 0);
+  }
+
+.barras{
+    margin-left: 40%;
+}
+
+.info.visible {
+    background-color: rgba(0, 255, 255, 0);
+}
+
+.infochild.visible {
+    background-color: rgba(250, 235, 215, 0);
+
+}
 .top {
     background-color: #111828;
     height: 11vh;
@@ -23,7 +44,19 @@
     justify-content: center;
     column-gap: 10px;
 }
+.top.visible {
+    border-bottom-right-radius: 15px;
+}
 
+.pictures.visible {
+    background-color: rgba(250, 235, 215, 0);
+    border-top: rgba(250, 235, 215, 0);
+}
+
+.picContainer.visible {
+    background-color: rgba(250, 235, 215, 0);
+
+}
 .info {
     height: 89vh;
     background-color: #1b2640;
@@ -74,3 +107,48 @@ h2 {
     transition: opacity 1s ease-in-out; /* You can choose your desired animation property and duration */
   }
   
+@media(max-width: 1030px) {
+    .top {
+        font-size: 80%;
+    }
+    .container.visible {
+        transform: translateX(-80%); 
+        background-color: rgba(250, 235, 215, 0);
+      }
+    
+}
+@media(max-width: 780px) {
+    .container {
+        width: 100vw;
+        border-bottom-right-radius: 0px;
+    }
+    .container.visible {
+        transform: translateX(-88%); 
+      }
+      .barras {
+        margin-left: 70%;
+      }
+      .top {
+        border-top-right-radius: 0px;
+      }
+      .info {
+        border-bottom-right-radius: 0px;
+      }
+}
+
+@media(max-width: 440px) {
+    .barras {
+        margin-left: 55%;
+    }
+    .container.visible {
+        transform: translateX(-85%); 
+      }
+}
+@media(max-width: 330px) {
+    .barras {
+        margin-left: 42%;
+    }
+    .container.visible {
+        transform: translateX(-80%); 
+      }
+}

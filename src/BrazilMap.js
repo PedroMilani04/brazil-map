@@ -29,11 +29,11 @@ const BrazilMap = () => {
   // Define bounds for Brazil (adjust these as needed)
   const brazilBounds = [
     [-43.75, -107.98], // Southwest coordinates of Brazil
-    [15.27, -24.79],   // Northeast coordinates of Brazil
+    [15.27, -28.79],   // Northeast coordinates of Brazil
   ];
 
   // Set minimum and maximum zoom levels
-  const minZoom = 5;
+  const minZoom = 4;
   const maxZoom = 10;
 
   const [selectedState, setSelectedState] = useState("--");
