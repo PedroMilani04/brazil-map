@@ -31,27 +31,27 @@ const SideBar = ({ key, selectedState, selectedCapital, selectedBiome, selectedF
             </div>
             <div className={`info ${isSidebarVisible ? "visible" : ""}`}>
                 <div className={`infochild ${isSidebarVisible ? "visible" : ""}`}>
-                    <h5>Estado:</h5>
-                    <p className="animate-text" data-aos="zoom-out">• {selectedState}</p>
+                    <h5 className={`h5c ${isSidebarVisible ? "visible" : ""}`}>Estado:</h5>
+                    <p className={`pc ${isSidebarVisible ? "visible" : ""}`}  data-aos="zoom-out">• {selectedState}</p>
                 </div>
                 <div className={`infochild ${isSidebarVisible ? "visible" : ""}`}>
-                    <h5>Capital:</h5>
-                    <p className="animate-text" data-aos="zoom-out">• {selectedCapital}</p>
+                    <h5 className={`h5c ${isSidebarVisible ? "visible" : ""}`}>Capital:</h5>
+                    <p className={`pc ${isSidebarVisible ? "visible" : ""}`}  data-aos="zoom-out">• {selectedCapital}</p>
                 </div>
                 <div className={`infochild ${isSidebarVisible ? "visible" : ""}`}>
-                    <h5>Bioma:</h5>
-                    <p className="animate-text" data-aos="zoom-out">• {selectedBiome}</p>
+                    <h5 className={`h5c ${isSidebarVisible ? "visible" : ""}`}>Bioma:</h5>
+                    <p className={`pc ${isSidebarVisible ? "visible" : ""}`}  data-aos="zoom-out">• {selectedBiome}</p>
                 </div>
                 <div className={`infochild ${isSidebarVisible ? "visible" : ""}`}>
-                    <h5>Fuso-Horário:</h5>
-                    <p className="animate-text" data-aos="zoom-out">• {selectedFuso}</p>
+                    <h5 className={`h5c ${isSidebarVisible ? "visible" : ""}`}>Fuso-Horário:</h5>
+                    <p className={`pc ${isSidebarVisible ? "visible" : ""}`}  data-aos="zoom-out">• {selectedFuso}</p>
                 </div>
                 <div className={`infochild ${isSidebarVisible ? "visible" : ""}`}>
-                    <h5>Habitantes:</h5>
-                    <p className="animate-text" data-aos="zoom-out">• {selectedPopul}</p>
+                    <h5 className={`h5c ${isSidebarVisible ? "visible" : ""}`}>Habitantes:</h5>
+                    <p className={`pc ${isSidebarVisible ? "visible" : ""}`} data-aos="zoom-out">• {selectedPopul}</p>
                 </div>
                 <div className={`pictures ${isSidebarVisible ? "visible" : ""}`}>
-                    <h2> Fotos </h2>
+                    <h2 className={`h2c ${isSidebarVisible ? "visible" : ""}`}> Fotos </h2>
                     <div className={`picContainer ${isSidebarVisible ? "visible" : ""}`}></div>
                 </div>
             </div>

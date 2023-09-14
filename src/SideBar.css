@@ -22,6 +22,18 @@
     background-color: rgba(250, 235, 215, 0);
   }
 
+.h2c.visible {
+    color: rgba(250, 235, 215, 0);
+
+}
+.h5c.visible {
+    color: rgba(250, 235, 215, 0);
+
+}
+.pc.visible {
+    color: rgba(250, 235, 215, 0);
+
+}
 .barras{
     margin-left: 40%;
 }
