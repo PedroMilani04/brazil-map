@@ -34,6 +34,9 @@
     color: rgba(250, 235, 215, 0);
 
 }
+.car.visible {
+    display: none;
+}
 .barras{
     margin-left: 40%;
 }
@@ -105,10 +108,10 @@ h5 {
 }
 
 .picContainer {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0);
     height: 40vh;
-    margin-left: 8%;
-    margin-right: 8%;
+    margin-left: 11%;
+    margin-right: 12%;
     border-radius: 10px;
 }
 
@@ -146,6 +149,10 @@ h2 {
       .info {
         border-bottom-right-radius: 0px;
       }
+      .picContainer {
+        margin-left: 31%;
+        margin-right: 31%;
+    }
 }
 
 @media(max-width: 440px) {
@@ -155,6 +162,10 @@ h2 {
     .container.visible {
         transform: translateX(-85%); 
       }
+      .picContainer {
+        margin-left: 16%;
+        margin-right: 16%;
+    }
 }
 @media(max-width: 330px) {
     .barras {
@@ -163,4 +174,8 @@ h2 {
     .container.visible {
         transform: translateX(-80%); 
       }
+      .picContainer {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
