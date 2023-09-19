@@ -63,7 +63,7 @@ const SideBar = ({ key, selectedState, selectedCapital, selectedBiome, selectedF
                         <Carousel  className={`car ${isSidebarVisible ? 'visible' : ''}`} showThumbs={false}>
                             {carouselImages.map((imageUrl, index) => (
                                 <div key={index}>
-                                    <img src={imageUrl} alt={`Image ${index}`} />
+                                    <img src={imageUrl} alt={`Image ${index}`} className="imgcarousel"/>
                                 </div>
                             ))}
                         </Carousel>

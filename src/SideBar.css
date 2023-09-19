@@ -49,6 +49,11 @@
     background-color: rgba(250, 235, 215, 0);
 
 }
+
+.imgcarousel {
+    height: 250px;
+}
+
 .top {
     background-color: #111828;
     height: 11vh;
@@ -152,6 +157,9 @@ h2 {
       .picContainer {
         margin-left: 31%;
         margin-right: 31%;
+    }
+    .imgcarousel {
+        height: 180px;
     }
 }
 
