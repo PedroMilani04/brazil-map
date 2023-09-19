@@ -42,8 +42,8 @@ const BrazilMap = () => {
   const [selectedBiome, setSelectedBiome] = useState("--");
   const [selectedFuso, setSelectedFuso] = useState("--");
   const [selectedPopul, setSelectedPopul] = useState("--");
-  const [Img1, setImg1] = useState("");
-  const [Img2, setImg2] = useState("");
+  const [Img1, setImg1] = useState("https://upload.wikimedia.org/wikipedia/commons/6/66/BLANK_ICON_%28cropped%29.png");
+  const [Img2, setImg2] = useState("https://upload.wikimedia.org/wikipedia/commons/6/66/BLANK_ICON_%28cropped%29.png");
 
 
   const [key, setKey] = useState(0); // Initialize key with 0
