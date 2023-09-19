@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
 
-const SideBar = ({ key, selectedState, selectedCapital, selectedBiome, selectedFuso, selectedPopul }) => {
+const SideBar = ({ key, selectedState, selectedCapital, selectedBiome, selectedFuso, selectedPopul, Img1, Img2 }) => {
     useEffect(() => {
         Aos.init({ duration: 1000 });
     }, []);
@@ -19,9 +19,8 @@ const SideBar = ({ key, selectedState, selectedCapital, selectedBiome, selectedF
     };
 
     const [carouselImages, setCarouselImages] = useState([
-        'https://s1.static.brasilescola.uol.com.br/be/conteudo/images/imagem-em-lente-convexa.jpg',
-        'https://s1.static.brasilescola.uol.com.br/be/conteudo/images/imagem-em-lente-convexa.jpg',
-        'https://s1.static.brasilescola.uol.com.br/be/conteudo/images/imagem-em-lente-convexa.jpg',
+        Img1,
+        Img2
     ]);
     return (
         <div className={`container ${isSidebarVisible ? "visible" : ""}`}>

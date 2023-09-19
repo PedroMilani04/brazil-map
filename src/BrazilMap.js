@@ -16,7 +16,7 @@ const BrazilMap = () => {
 
   useEffect(() => {
     // Fetch the GeoJSON data for all Brazilian states
-    fetch('https://api.npoint.io/b6e62b85786ebb5b7f80')
+    fetch('https://api.npoint.io/877e192efe3836825834')
       .then((response) => response.json())
       .then((data) => {
         setGeojsonData(data);
@@ -42,6 +42,9 @@ const BrazilMap = () => {
   const [selectedBiome, setSelectedBiome] = useState("--");
   const [selectedFuso, setSelectedFuso] = useState("--");
   const [selectedPopul, setSelectedPopul] = useState("--");
+  const [Img1, setImg1] = useState("");
+  const [Img2, setImg2] = useState("");
+
 
   const [key, setKey] = useState(0); // Initialize key with 0
   const updateKey = () => {
@@ -63,13 +66,15 @@ const BrazilMap = () => {
     setSelectedBiome(feature.properties.bioma);
     setSelectedPopul(feature.properties.populacao);
     setSelectedFuso(feature.properties.fuso);
+    setImg1(feature.properties.img1);
+    setImg2(feature.properties.img2);
     updateKey();
   };
   // Function to update the key
   
   return (
     <div className='all'>
-      <SideBar data-aos="slide-right" data-aos-duration="1800" key={key} selectedState={selectedState} selectedCapital={selectedCapital} selectedBiome={selectedBiome} selectedFuso={selectedFuso} selectedPopul={selectedPopul} />
+      <SideBar data-aos="slide-right" data-aos-duration="1800" key={key} selectedState={selectedState} selectedCapital={selectedCapital} selectedBiome={selectedBiome} selectedFuso={selectedFuso} selectedPopul={selectedPopul} Img1={Img1} Img2={Img2} />
       <MapContainer
       className='mapcont'
         center={[-14.235, -51.925]}
