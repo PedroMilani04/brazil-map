@@ -18,7 +18,7 @@
 }
 
 .container.visible {
-    transform: translateX(-75%); /* Translate the sidebar to the left when it's visible */
+    transform: translateX(-78%); /* Translate the sidebar to the left when it's visible */
     background-color: rgba(250, 235, 215, 0);
   }
 
@@ -34,12 +34,54 @@
     color: rgba(250, 235, 215, 0);
 
 }
+.pc {
+    cursor: pointer;
+    transition: scale 1s ease; /* Add a transition for the color property */
+}
+
+.pc.red:hover {
+    color: rgb(231, 67, 67);
+    scale: 1.1;
+}
+.pc.green:hover {
+    color: rgb(116, 238, 88);
+    scale: 1.1;
+
+}
+.pc.blue:hover {
+    color: rgb(66, 100, 223);
+    scale: 1.1;
+
+}
+.pc.yellow:hover {
+    color: rgb(241, 238, 58);
+    scale: 1.1;
+
+}
+.pc.purple:hover {
+    color: rgb(159, 79, 221);
+    scale: 1.1;
+
+}
+
 .car.visible {
     display: none;
 }
 .barras{
-    margin-left: 40%;
+    margin-left: 48%;
 }
+
+.carrouself {
+    border-radius: 30px;
+
+    width: 100%;
+    height: 100%;
+}
+
+.carrouself.visible {
+    display: none;
+}
+
 
 .info.visible {
     background-color: rgba(0, 255, 255, 0);
@@ -52,6 +94,7 @@
 
 .imgcarousel {
     height: 250px;
+    width: 100%;
 }
 
 .top {
@@ -75,7 +118,6 @@
 
 .picContainer.visible {
     background-color: rgba(250, 235, 215, 0);
-
 }
 .info {
     height: 89vh;
@@ -91,11 +133,13 @@
     margin-bottom: 1vh;
 }
 .infochild p {
-    transition: ease-in 2s;
     margin-top: -15px;
     display: flex;
     flex-direction: column;
+    transition: ease;
 }
+
+
 
 h5 {
     font-style: italic;
@@ -114,10 +158,9 @@ h5 {
 
 .picContainer {
     background-color: rgba(255, 255, 255, 0);
-    height: 40vh;
-    margin-left: 11%;
-    margin-right: 12%;
-    border-radius: 10px;
+    height: 29vh;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
 h2 {
@@ -130,11 +173,20 @@ h2 {
 @media(max-width: 1030px) {
     .top {
         font-size: 80%;
+        margin-right: 10px;
+        margin-left: 10px;
     }
     .container.visible {
         transform: translateX(-80%); 
         background-color: rgba(250, 235, 215, 0);
       }
+      .picContainer {
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+    .carrouself {
+        height: 90%;
+    }
     
 }
 @media(max-width: 780px) {
