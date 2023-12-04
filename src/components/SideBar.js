@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./SideBar.css";
+import "../styles/SideBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import Aos from "aos";

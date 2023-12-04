@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import './BrazilMap.css';
+import '../styles/BrazilMap.css';
 import SideBar from './SideBar';
 import Aos from "aos";
 import "aos/dist/aos.css";
