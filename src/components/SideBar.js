@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
+// SideBar começa recebendo as informações vindas do mapa como Props
 const SideBar = ({ selectedState, selectedCapital, selectedBiome, selectedFuso, selectedPopul, Img1, Img2 }) => {
     useEffect(() => {
         Aos.init({ duration: 1000 });
@@ -14,7 +15,7 @@ const SideBar = ({ selectedState, selectedCapital, selectedBiome, selectedFuso, 
 
     const [isSidebarVisible, setSidebarVisible] = useState(false);
 
-    // Function to toggle sidebar visibility
+    // Muda a visibilidade da barra (função chamada com onClick no simbolo da barra)
     const toggleSidebar = () => {
         setSidebarVisible(!isSidebarVisible);
     };
@@ -37,9 +38,9 @@ const SideBar = ({ selectedState, selectedCapital, selectedBiome, selectedFuso, 
     };
 
     return (
-        <div className={`container ${isSidebarVisible ? "visible" : ""}`}>
+        <div className={`container ${isSidebarVisible ? "visible" : ""}`}> {/* Se o UseState declarado anteriormente for "visible", refletira no nome da classe*/}
             <div className={`top ${isSidebarVisible ? "visible" : ""}`}>
-                <FontAwesomeIcon icon={faEarthAmericas} style={{ color: "#ffffff" }} size="2x" />
+                <FontAwesomeIcon icon={faEarthAmericas} style={{ color: "#ffffff" }} size="2x" /> {/* Simbolo do font awesome */}
                 <h1>Mapa</h1>
                 <FontAwesomeIcon
                     icon={faBars}
@@ -78,7 +79,7 @@ const SideBar = ({ selectedState, selectedCapital, selectedBiome, selectedFuso, 
                                 <div key={index}>
                                     <img src={imageUrl} alt={`Image ${index}`} className="imgcarousel" />
                                 </div>
-                            ))}
+                            ))} {/* Carrosel de imagens da biblioteca react-multi-carousel */}
                         </Carousel>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import SideBar from './SideBar';
 import Aos from "aos";
 import "aos/dist/aos.css";
 
+// USEEFFECT - Inicia AOS uma vez por inicialização
 const BrazilMap = () => {
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -15,7 +16,7 @@ const BrazilMap = () => {
   const [geojsonData, setGeojsonData] = useState(null);
 
   useEffect(() => {
-    // Fetch the GeoJSON data for all Brazilian states
+    // Faz a chamada da informação do GeoJSON via fetch
     fetch('https://api.npoint.io/877e192efe3836825834')
       .then((response) => response.json())
       .then((data) => {
@@ -26,18 +27,17 @@ const BrazilMap = () => {
       });
   }, []);
 
-  // Define bounds for Brazil (adjust these as needed)
+  // Definindo as cordenadas do mapa para o Brasil
   const brazilBounds = [
-    [-43.75, -107.98], // Southwest coordinates of Brazil
-    [15.27, -28.79],   // Northeast coordinates of Brazil
+    [-43.75, -107.98], 
+    [15.27, -28.79],  
   ];
 
-  // Set minimum and maximum zoom levels
+  // Zoom minimo e máximo do mapa
   const minZoom = 4;
   const maxZoom = 10;
-
+  // USESTATE - Iniciando as informações iniciais
   const [selectedState, setSelectedState] = useState("--");
-  // starting new info states
   const [selectedCapital, setSelectedCapital] = useState("--");
   const [selectedBiome, setSelectedBiome] = useState("--");
   const [selectedFuso, setSelectedFuso] = useState("--");
@@ -46,21 +46,22 @@ const BrazilMap = () => {
   const [Img2, setImg2] = useState("https://upload.wikimedia.org/wikipedia/commons/6/66/BLANK_ICON_%28cropped%29.png");
 
 
-  const [key, setKey] = useState(0); // Initialize key with 0
+  const [key, setKey] = useState(0); // Inicializa a key com 0
   const updateKey = () => {
-    setKey((prevKey) => prevKey + 1); // Increment the key to trigger a re-render
+    setKey((prevKey) => prevKey + 1); // Incremente e muda o valor da key para re-renderizar o componente
   };
 
+  // Função chamada em onClick no estado
   const handleStateClick = (feature, layer) => {
-    const bounds = layer.getBounds();
-    const map = layer._map; // Get the map instance from the layer
+    const bounds = layer.getBounds(); // As fronteiras do mapa
+    const map = layer._map; // A layer do mapa em si
 
-    // Fit the map to the bounds of the selected state
+    // Dá o zoom e encaixa o estado clicado na tela
     if (map) {
       map.fitBounds(bounds);
     }
 
-    // Update the selected state and other information
+    // Atualiza a informação na side bar com as do estado clicado
     setSelectedState(feature.properties.name);
     setSelectedCapital(feature.properties.capital);
     setSelectedBiome(feature.properties.bioma);
@@ -70,15 +71,17 @@ const BrazilMap = () => {
     setImg2(feature.properties.img2);
     updateKey();
   };
-  // Function to update the key
   
+  // <SideBar> é o componente React de toda a barra lateral com a informação do estado. 
+  // Vai receber as informações como PROPS
   return (
     <div className='all'>
+      
       <SideBar data-aos="slide-right" data-aos-duration="1800" key={key} selectedState={selectedState} selectedCapital={selectedCapital} selectedBiome={selectedBiome} selectedFuso={selectedFuso} selectedPopul={selectedPopul} Img1={Img1} Img2={Img2} />
       <MapContainer
       className='mapcont'
         center={[-14.235, -51.925]}
-        zoom={minZoom} // Set the initial zoom level to the minimum
+        zoom={minZoom} 
         style={{ height: '100vh' }}
         maxBounds={brazilBounds}
         maxBoundsViscosity={1.0}
@@ -92,21 +95,21 @@ const BrazilMap = () => {
           <GeoJSON
             data={geojsonData}
             style={(feature) => {
-              if (feature.properties.regiao_id === '1') {
-                return { color: '#7F3687' }; // Set color to pink
+              if (feature.properties.regiao_id === '1') { // muda a cor das regiões a partir de seu ID
+                return { color: '#7F3687' }; 
               } else if (feature.properties.regiao_id === '2') {
-                return { color: '#E21349' }; // Set the default color for other states
+                return { color: '#E21349' }; 
               } else if (feature.properties.regiao_id === '3') {
-                return { color: '#42A62A' }; // Set the default color for other states
+                return { color: '#42A62A' }; 
               } else if (feature.properties.regiao_id === '4') {
-                return { color: '#0B71B4' }; // Set the default color for other states
+                return { color: '#0B71B4' }; 
               } else if (feature.properties.regiao_id === '5') {
-                return { color: '#F8B236' }; // Set the default color for other states
+                return { color: '#F8B236' }; 
               }
             }}
             onEachFeature={(feature, layer) => {
               layer.on({
-                mouseover: () => {if (feature.properties.regiao_id === '1') {
+                mouseover: () => {if (feature.properties.regiao_id === '1') { // mesa coisa mas no "hover", feito com mouseover
                   layer.setStyle({ color: '#a864af' });
                 } else if (feature.properties.regiao_id === '2') {
                   layer.setStyle({ color: '#ea466f' });
