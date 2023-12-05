@@ -79,7 +79,7 @@ const SideBar = ({ selectedState, selectedCapital, selectedBiome, selectedFuso, 
                                 <div key={index}>
                                     <img src={imageUrl} alt={`Image ${index}`} className="imgcarousel" />
                                 </div>
-                            ))} {/* Carrosel de imagens da biblioteca react-multi-carousel */}
+                            ))} 
                         </Carousel>
                     </div>
                 </div>
